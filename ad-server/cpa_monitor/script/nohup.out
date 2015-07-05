@@ -1,0 +1,385 @@
+Traceback (most recent call last):
+  File "cpa_monitor.py", line 29, in <module>
+    ret=init()
+  File "cpa_monitor.py", line 22, in init
+    filemode='a')
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 1530, in basicConfig
+    hdlr = FileHandler(filename, mode)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 903, in __init__
+    StreamHandler.__init__(self, self._open())
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 926, in _open
+    stream = open(self.baseFilename, self.mode)
+IOError: [Errno 2] No such file or directory: '/opt/userhome/superyc/test_monitor/log/click.log'
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 419, in _delegate
+    cls = fvars[f]
+KeyError: u'('
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 419, in _delegate
+    cls = fvars[f]
+KeyError: u'('
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 229, in handle
+    fn, args = self._match(self.mapping, web.ctx.path)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 427, in _match
+    for pat, what in mapping:
+ValueError: need more than 1 value to unpack
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 229, in handle
+    fn, args = self._match(self.mapping, web.ctx.path)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 427, in _match
+    for pat, what in mapping:
+ValueError: need more than 1 value to unpack
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 229, in handle
+    fn, args = self._match(self.mapping, web.ctx.path)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 427, in _match
+    for pat, what in mapping:
+ValueError: need more than 1 value to unpack
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 419, in _delegate
+    cls = fvars[f]
+KeyError: u'('
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 229, in handle
+    fn, args = self._match(self.mapping, web.ctx.path)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 427, in _match
+    for pat, what in mapping:
+ValueError: need more than 1 value to unpack
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 419, in _delegate
+    cls = fvars[f]
+KeyError: u'('
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 229, in handle
+    fn, args = self._match(self.mapping, web.ctx.path)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 427, in _match
+    for pat, what in mapping:
+ValueError: need more than 1 value to unpack
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 419, in _delegate
+    cls = fvars[f]
+KeyError: u'('
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 229, in handle
+    fn, args = self._match(self.mapping, web.ctx.path)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 427, in _match
+    for pat, what in mapping:
+ValueError: need more than 1 value to unpack
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 419, in _delegate
+    cls = fvars[f]
+KeyError: u'('
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 229, in handle
+    fn, args = self._match(self.mapping, web.ctx.path)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 427, in _match
+    for pat, what in mapping:
+ValueError: need more than 1 value to unpack
+
+python: can't open file 'cpa_monitor.py^': [Errno 2] No such file or directory
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 419, in _delegate
+    cls = fvars[f]
+KeyError: u'('
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 229, in handle
+    fn, args = self._match(self.mapping, web.ctx.path)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 427, in _match
+    for pat, what in mapping:
+ValueError: need more than 1 value to unpack
+
+Traceback (most recent call last):
+  File "cpa_monitor.py", line 37, in <module>
+    app.run() 
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 313, in run
+    return wsgi.runwsgi(self.wsgifunc(*middleware))
+  File "/opt/userhome/superyc/test_monitor/script/nginx_uwsgi.py", line 94, in nginxRunuwsgi
+    s_l.bind( ("127.0.0.1", SERVER_PORT) )
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/socket.py", line 224, in meth
+    return getattr(self._sock,name)(*args)
+socket.error: [Errno 98] Address already in use
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+TypeError: GET() takes exactly 1 argument (2 given)
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+TypeError: GET() takes exactly 1 argument (2 given)
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "cpa_monitor.py", line 16, in GET
+    remote_ip=request.META['REMOTE_ADDR']
+NameError: global name 'request' is not defined
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "cpa_monitor.py", line 16, in GET
+    remote_ip=request.META['REMOTE_ADDR']
+NameError: global name 'request' is not defined
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "cpa_monitor.py", line 16, in GET
+    remote_ip=msg.META['REMOTE_ADDR']
+AttributeError: 'unicode' object has no attribute 'META'
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "cpa_monitor.py", line 16, in GET
+    remote_ip=msg.META['REMOTE_ADDR']
+AttributeError: 'unicode' object has no attribute 'META'
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 237, in process
+    return p(lambda: process(processors))
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 565, in processor
+    h()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 661, in __call__
+    self.check(mod)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 680, in check
+    reload(mod)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 617, in <module>
+    _handlers = weakref.WeakValueDictionary()  #map of handler names to handlers
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/weakref.py", line 53, in __init__
+    UserDict.UserDict.__init__(self, *args, **kw)
+TypeError: unbound method __init__() must be called with UserDict instance as first argument (got WeakValueDictionary instance instead)
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 237, in process
+    return p(lambda: process(processors))
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 585, in processor
+    h()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 98, in _unload
+    web.ctx.app_stack = web.ctx.app_stack[:-1]
+AttributeError: 'ThreadedDict' object has no attribute 'app_stack'
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 237, in process
+    return p(lambda: process(processors))
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 566, in processor
+    return handler()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 237, in <lambda>
+    return p(lambda: process(processors))
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 246, in process
+    raise self.internalerror()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 473, in internalerror
+    parent = self.get_parent_app()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 458, in get_parent_app
+    if self in web.ctx.app_stack:
+AttributeError: 'ThreadedDict' object has no attribute 'app_stack'
+
+Process request failed!
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/test_monitor/script/nginx_uwsgi.py", line 181, in nginxRunuwsgi
+    response = func(request, nginx_start_response)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 279, in wsgi
+    result = self.handle_with_processors()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 249, in handle_with_processors
+    return process(self.processors)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 246, in process
+    raise self.internalerror()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 473, in internalerror
+    parent = self.get_parent_app()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 458, in get_parent_app
+    if self in web.ctx.app_stack:
+AttributeError: 'ThreadedDict' object has no attribute 'app_stack'
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 237, in process
+    return p(lambda: process(processors))
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 565, in processor
+    h()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 661, in __call__
+    self.check(mod)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 680, in check
+    reload(mod)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 617, in <module>
+    _handlers = weakref.WeakValueDictionary()  #map of handler names to handlers
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/weakref.py", line 53, in __init__
+    UserDict.UserDict.__init__(self, *args, **kw)
+TypeError: unbound method __init__() must be called with UserDict instance as first argument (got WeakValueDictionary instance instead)
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 237, in process
+    return p(lambda: process(processors))
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 565, in processor
+    h()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 661, in __call__
+    self.check(mod)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 680, in check
+    reload(mod)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 617, in <module>
+    _handlers = weakref.WeakValueDictionary()  #map of handler names to handlers
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/weakref.py", line 53, in __init__
+    UserDict.UserDict.__init__(self, *args, **kw)
+TypeError: unbound method __init__() must be called with UserDict instance as first argument (got WeakValueDictionary instance instead)
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 237, in process
+    return p(lambda: process(processors))
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 565, in processor
+    h()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 661, in __call__
+    self.check(mod)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 680, in check
+    reload(mod)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 617, in <module>
+    _handlers = weakref.WeakValueDictionary()  #map of handler names to handlers
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/weakref.py", line 53, in __init__
+    UserDict.UserDict.__init__(self, *args, **kw)
+TypeError: unbound method __init__() must be called with UserDict instance as first argument (got WeakValueDictionary instance instead)
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 237, in process
+    return p(lambda: process(processors))
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 565, in processor
+    h()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 661, in __call__
+    self.check(mod)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 680, in check
+    reload(mod)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 617, in <module>
+    _handlers = weakref.WeakValueDictionary()  #map of handler names to handlers
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/weakref.py", line 53, in __init__
+    UserDict.UserDict.__init__(self, *args, **kw)
+TypeError: unbound method __init__() must be called with UserDict instance as first argument (got WeakValueDictionary instance instead)
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "cpa_monitor.py", line 22, in GET
+    logging.info("open app:%s\tip:%s" %(json.dumps(input_dict),remote_ip))
+NameError: global name 'json' is not defined
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "cpa_monitor.py", line 22, in GET
+    logging.info("open app:%s\tip:%s" %(json.dumps(input_dict),remote_ip))
+NameError: global name 'json' is not defined
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "cpa_monitor.py", line 22, in GET
+    logging.info("open app:%s\tip:%s" %(json.dumps(input_dict),remote_ip))
+NameError: global name 'json' is not defined
+
