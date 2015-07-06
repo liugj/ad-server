@@ -1,0 +1,252 @@
+Traceback (most recent call last):
+  File "rtb_svr_new.py", line 12, in <module>
+    from ad_svr_client import Client
+  File "/opt/userhome/superyc/ad_mobile/online/rtb_web_service/script/ad_svr_client.py", line 14, in <module>
+    import msg_pb2
+  File "/opt/userhome/superyc/ad_mobile/online/rtb_web_service/script/msg_pb2.py", line 4, in <module>
+    from google.protobuf import descriptor
+ImportError: No module named google.protobuf
+Traceback (most recent call last):
+  File "rtb_svr_new.py", line 16, in <module>
+    import msgpack
+ImportError: No module named msgpack
+Traceback (most recent call last):
+  File "rtb_svr_new.py", line 97, in <module>
+    ret=init()
+  File "rtb_svr_new.py", line 70, in init
+    timestamp=datetime.datetime.now().strftime("%Y-%m-%d-%H")
+NameError: global name 'datetime' is not defined
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 55, in GET
+    web_dict[key]=value
+NameError: global name 'web_dict' is not defined
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 55, in GET
+    web_dict[key]=value
+NameError: global name 'web_dict' is not defined
+
+Traceback (most recent call last):
+  File "rtb_svr_new.py", line 98, in <module>
+    app.run() 
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 313, in run
+    return wsgi.runwsgi(self.wsgifunc(*middleware))
+  File "/opt/userhome/superyc/ad_mobile/online/rtb_web_service/script/nginx_uwsgi.py", line 94, in nginxRunuwsgi
+    s_l.bind( ("127.0.0.1", SERVER_PORT) )
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/socket.py", line 224, in meth
+    return getattr(self._sock,name)(*args)
+socket.error: [Errno 98] Address already in use
+Traceback (most recent call last):
+  File "rtb_svr_new.py", line 98, in <module>
+    app.run() 
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 313, in run
+    return wsgi.runwsgi(self.wsgifunc(*middleware))
+  File "/opt/userhome/superyc/ad_mobile/online/rtb_web_service/script/nginx_uwsgi.py", line 94, in nginxRunuwsgi
+    s_l.bind( ("127.0.0.1", SERVER_PORT) )
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/socket.py", line 224, in meth
+    return getattr(self._sock,name)(*args)
+socket.error: [Errno 98] Address already in use
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 45, in POST
+    bid_dict=msgpack.unpackb(ret_result.result)
+  File "build/bdist.linux-x86_64/egg/msgpack/fallback.py", line 91, in unpackb
+    unpacker.feed(packed)
+  File "build/bdist.linux-x86_64/egg/msgpack/fallback.py", line 204, in feed
+    if (self._fb_buf_n + len(next_bytes) - self._fb_sloppiness
+TypeError: object of type 'NoneType' has no len()
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 45, in POST
+    bid_dict=msgpack.unpackb(ret_result.result)
+  File "build/bdist.linux-x86_64/egg/msgpack/fallback.py", line 91, in unpackb
+    unpacker.feed(packed)
+  File "build/bdist.linux-x86_64/egg/msgpack/fallback.py", line 204, in feed
+    if (self._fb_buf_n + len(next_bytes) - self._fb_sloppiness
+TypeError: object of type 'NoneType' has no len()
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 35, in POST
+    logging.info("%s %s" %(req_json,web.data()["channel"]))
+TypeError: string indices must be integers, not str
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 35, in POST
+    logging.info("%s %s" %(req_json,web.data()["channel"]))
+TypeError: string indices must be integers, not str
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 35, in POST
+    logging.info("%s %s" %(req_json,web.data()["channel"]))
+TypeError: string indices must be integers, not str
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 35, in POST
+    logging.info("%s %s" %(req_json,web.data()["channel"]))
+TypeError: string indices must be integers, not str
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 45, in POST
+    bid_dict=msgpack.unpackb(ret_result.result)
+  File "build/bdist.linux-x86_64/egg/msgpack/fallback.py", line 91, in unpackb
+    unpacker.feed(packed)
+  File "build/bdist.linux-x86_64/egg/msgpack/fallback.py", line 204, in feed
+    if (self._fb_buf_n + len(next_bytes) - self._fb_sloppiness
+TypeError: object of type 'NoneType' has no len()
+
+Traceback (most recent call last):
+  File "rtb_svr_new.py", line 91, in <module>
+    ret=init()
+  File "rtb_svr_new.py", line 73, in init
+    host_info_dict["host"]=g_conf.get("ad_svr","host")   
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/ConfigParser.py", line 607, in get
+    raise NoSectionError(section)
+ConfigParser.NoSectionError: No section: 'ad_svr'
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 45, in POST
+    bid_dict=msgpack.unpackb(ret_result.result)
+  File "build/bdist.linux-x86_64/egg/msgpack/fallback.py", line 91, in unpackb
+    unpacker.feed(packed)
+  File "build/bdist.linux-x86_64/egg/msgpack/fallback.py", line 204, in feed
+    if (self._fb_buf_n + len(next_bytes) - self._fb_sloppiness
+TypeError: object of type 'NoneType' has no len()
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 47, in POST
+    bid_dict=msgpack.unpackb(ret_result.result)
+AttributeError: 'NoneType' object has no attribute 'result'
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 47, in POST
+    bid_dict=msgpack.unpackb(ret_result.result)
+AttributeError: 'NoneType' object has no attribute 'result'
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 47, in POST
+    bid_dict=msgpack.unpackb(ret_result.result)
+  File "build/bdist.linux-x86_64/egg/msgpack/fallback.py", line 91, in unpackb
+    unpacker.feed(packed)
+  File "build/bdist.linux-x86_64/egg/msgpack/fallback.py", line 204, in feed
+    if (self._fb_buf_n + len(next_bytes) - self._fb_sloppiness
+TypeError: object of type 'NoneType' has no len()
+
+Traceback (most recent call last):
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/site-packages/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "rtb_svr_new.py", line 47, in POST
+    bid_dict=msgpack.unpackb(ret_result.result)
+  File "build/bdist.linux-x86_64/egg/msgpack/fallback.py", line 91, in unpackb
+    unpacker.feed(packed)
+  File "build/bdist.linux-x86_64/egg/msgpack/fallback.py", line 204, in feed
+    if (self._fb_buf_n + len(next_bytes) - self._fb_sloppiness
+TypeError: object of type 'NoneType' has no len()
+

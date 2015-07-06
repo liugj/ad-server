@@ -1,0 +1,40 @@
++ python extract_feature.py ../log/join_log.2014-12-31 ../data/fea_set.2014-12-31 ../data/ins_lr.2014-12-31
++ python extract_feature.py ../log/join_log.2014-12-31 ../data/fea_set.2014-12-31 ../data/ins_lr.2014-12-31
+Traceback (most recent call last):
+  File "analysis.py", line 68, in <module>
+    process(fea_set_file,result_file)
+  File "analysis.py", line 51, in process
+    result_fp.write("%s\t%%s\t%d\t%d\t%f" %(fea_name,fea_value,data_list[0],data_list[1],data_list[2]))
+TypeError: %d format: a number is required, not str
+Traceback (most recent call last):
+  File "analysis.py", line 70, in <module>
+    process(fea_set_file,result_file)
+  File "analysis.py", line 33, in process
+    for fea_value in feature_value_list:
+NameError: global name 'feature_value_list' is not defined
+iter   1  #CD cycles 1
+iter   2  #CD cycles 1
+iter   3  #CD cycles 1
+iter   4  #CD cycles 1
+iter   5  #CD cycles 3
+iter   6  #CD cycles 1
+iter   7  #CD cycles 1
+iter   8  #CD cycles 6
+iter   9  #CD cycles 1
+iter  10  #CD cycles 21
+iter  11  #CD cycles 10
+iter  12  #CD cycles 7
+iter  13  #CD cycles 1
+iter  14  #CD cycles 40
+=========================
+optimization finished, #iter = 14
+Objective value = 2427.097038
+#nonzeros/#features = 240/17745
++ date=2015-01-23
++ python join_log_test.py /opt/userhome/superyc/ad_mobile/online/monitor_service/log/ad_show.log.2015-01-23 /opt/userhome/superyc/ad_mobile/online/monitor_service/log/ad_click.log.2015-01-23 /opt/userhome/superyc/ad_mobile/online/ad_server_new/log/ad_svr_python.log.2015-01-23 /opt/userhome/superyc/ad_mobile/online/rtb_web_service/charge_log/charge_log_detail_history.2015-01-23 ../log/join_log.2015-01-23
++ date=2015-01-23
++ python join_log.py /opt/userhome/superyc/ad_mobile/online/monitor_service/log/ad_show.log.2015-01-23 /opt/userhome/superyc/ad_mobile/online/monitor_service/log/ad_click.log.2015-01-23 /opt/userhome/superyc/ad_mobile/online/ad_server_new/log/ad_svr_python.log.2015-01-23 /opt/userhome/superyc/ad_mobile/online/rtb_web_service/charge_log/charge_log_detail_history.2015-01-23 ../log/join_log.2015-01-23
++ date=2015-01-22
++ python join_log.py /opt/userhome/superyc/ad_mobile/online/monitor_service/log/ad_show.log.2015-01-22 /opt/userhome/superyc/ad_mobile/online/monitor_service/log/ad_click.log.2015-01-22 /opt/userhome/superyc/ad_mobile/online/ad_server_new/log/ad_svr_python.log.2015-01-22 /opt/userhome/superyc/ad_mobile/online/rtb_web_service/charge_log/charge_log_detail_history.2015-01-22 ../log/join_log.2015-01-22
++ python extract_feature.py ../log/join_log.2015-01-23 ../data/fea_set.2015-01-23 ../data/ins_lr.2015-01-23
+48746
