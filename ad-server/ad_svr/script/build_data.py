@@ -28,6 +28,15 @@ class inverted_index_t:
             value_str=",".join(value_list)
             output_fp.write("%s\t%s\n" %(key,value_str))
         output_fp.close()
+    
+    def load_file(self,file_path):
+        input_fp=open(file_path,"r")
+        for line in input_fp:
+            line=line.rstrip("\r\n").split("\t")
+            key=line[0]
+            value_list=line[1].split(",")
+            self.inverted_dict[key]=value_list
+        input_fp.close()
        
 class index_t:
     def __init__(self):
@@ -54,6 +63,14 @@ class index_t:
             output_fp.write("%s\t%s\n" %(key,json.dumps(value_dict)))
         output_fp.close()
 
+    def load_file(self,file_path):
+        input_fp=open(file_path,"r")
+        for line in input_fp:
+            line=line.rstrip("\r\n").split("\t")
+            key=line[0]
+            value=json.loads(line[1])
+            self.index_dict[key]=value
+        input_fp.close()
     
 class map_t:
     def __init__(self):

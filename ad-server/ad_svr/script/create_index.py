@@ -156,7 +156,7 @@ def create_inverted_index():
             ridx_obj.insert_data(key,idea_id)
             indexed_idea_dict[idea_id]=1
         for idea_id in g_valid_idea_dict:
-            if not(idea_id in indexed_idea_dict):
+            if not(idea_id in indexed_idea_dict) and rdx_name!="ban_idea":
                 ridx_obj.insert_data("0",idea_id)
         fp.close()
         ridx_obj.dump("../index/"+rdx_name+".ridx")    
@@ -169,6 +169,7 @@ def create_index():
     line_cnt=0
     file_obj=file_process_t()   
     type_ridx=inverted_index_t()
+    size_ridx=inverted_index_t()
     for ori_line in idea_fp:
         data_list=ori_line.rstrip("\r\n").split("\t")
         line_cnt+=1
@@ -180,14 +181,16 @@ def create_index():
             logging.debug("idea id no budget[%s]" %(idea_id))
             continue
         type=file_obj.get_value("type",data_list)
+        size_id=file_obj.get_value("size_id",data_list)
         type_ridx.insert_data(type,idea_id)
+        size_ridx.insert_data(size_id,idea_id)
         for name in index_name_list:
             value=file_obj.get_value(name,data_list)
             index_obj.insert_data(idea_id,name,value)
     idea_fp.close()
     #dump type invert index
     type_ridx.dump("../index/type.ridx")
-
+    size_ridx.dump("../index/size.ridx")
     file_obj=file_process_t()   
     line_cnt=0
     operate_fp=open(g_conf.get("file","idea_operate"),"r")
