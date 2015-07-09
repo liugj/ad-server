@@ -3,6 +3,75 @@
 import logging
 import json
 from adx_id_map import adx_id_map
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+g_text_template='''
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' /><style type='text/css'>*{padding:0px;margin:0px;} a:link{text-decoration:underline;}</style><a href='#CLICK_URL#'><div style='width:320px;height:50px;'><table width="320" border="0" cellspacing="0" cellpadding="0"><tr height="50"><td height="50"align="center" style="color:blue;text-decoration: underline;">%s</td></tr></table></div></a>#IMP_TRACK#
+'''
+
+g_banner_template= '''
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <style type="text/css">
+        *{
+            padding:0;
+            margin:0;
+        }
+        a:link{
+            text-decoration:none;
+        }
+        a img{
+            border:none 0;    
+        }
+        .ad {
+           position: fixed;    
+           display:block;
+           width: 100%%;
+           height: 100%%;
+           overflow:hidden;
+           text-align:center;
+        }
+        
+    </style>
+    <a href='#CLICK_URL#' class="ad">
+        <img src="%s" alt="" width="100%%" height="100%%" />
+    </a>#IMP_TRACK#
+''';
+
+g_plaque_template= '''
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <style type="text/css">
+        *{
+            padding:0;
+            margin:0;
+        }
+        a:link{
+            text-decoration:none;
+        }
+        a img{
+            border:none 0;    
+        }
+        .ad {
+           display:block;
+           width: 100%%;
+           height: 100%%;
+           overflow:hidden;
+           text-align:center;
+           overflow:hidden;
+        }
+        .ad img{
+           width:100%%;
+           height:100%%;
+        }
+
+        
+    </style>
+    <a href='#CLICK_URL#' class="ad">
+       <img src="%s" alt="" width="%dpx" height="%dpx" />
+    </a>#IMP_TRACK#
+''';
+
 
 def get_value(json_dict,key):
     if json_dict==None:
@@ -12,7 +81,7 @@ def get_value(json_dict,key):
     return None   
 
 class mongo_v1_2:
-    def __init__(self,adx_id_map):
+    def __init__(self,adx_id_map,conf):
         self.adx_id_map=adx_id_map
         self.version="mongo_v1_2"
         pass
@@ -27,9 +96,10 @@ class mongo_v1_2:
 
 
 class mongo_v1_3_1:
-    def __init__(self,adx_id_map):
+    def __init__(self,adx_id_map,conf):
         self.adx_id_map=adx_id_map
         self.version="mongo_v1_3_1"
+        self.conf=conf
         pass
                 
     def parse_bid_request(self,adx_data_dict):
@@ -69,9 +139,9 @@ class mongo_v1_3_1:
         if instl==0:
             ad_type="banner"
         elif instl==1:
-            if orientation==1:
+            if orientation==2:
                 ad_type="plaqueX"
-            elif orientation==2:
+            elif orientation==1:
                 ad_type="plaqueY"
             else:
                 ad_type="unknown"
@@ -104,16 +174,78 @@ class mongo_v1_3_1:
         logging.debug("%s" %(parse_req_dict))
         return parse_req_dict        
        
-    def create_bid_response(self,res_dict):
-        pass
+    def create_adx_response(self,idea_id,idea_json,adx_req_dict,bid):
+        adx_response_dict={}
+        ext_obj={}
+        adx_response_dict["id"]=adx_req_dict["id"]
+        if bid==0:
+            adx_response_dict["nbr"]=0
+            adx_response_dict["seatbid"]=[]
+            return adx_response_dict
+        seat_obj_list=[]
+        seat_obj={}
+        bid_obj_list=[]
+        bid_obj={}
+        req_imp_dict=adx_req_dict["imp"][0]
+        ad_type=req_imp_dict["instl"]    
+        imp_id=req_imp_dict["impid"]
+        bid_obj["impid"]=imp_id
+        bid_obj["price"]=bid
+        bid_obj["adid"]=idea_id
+        #set url
+        bid_obj["nurl"]=self.conf.get("url","nurl")+imp_id+"&win_price=#WIN_PRICE#"+"&idea_id="+idea_id
+        bid_obj["cturl"]=[self.conf.get("url","cturl")+imp_id+"&idea_id="+idea_id]
+        bid_obj["iurl"]=self.conf.get("url","iurl")+imp_id+"&idea_id="+idea_id
+        download_aurl=self.conf.get("url","download_aurl")+imp_id+"$$$idea_id*"+idea_id
+        install_aurl=self.conf.get("url","install_aurl")+imp_id+"$$$idea_id*"+idea_id
+        open_aurl=self.conf.get("url","open_aurl")+imp_id+"$$$idea_id*"+idea_id
+        bid_obj["aurl"]=download_aurl+"||"+install_aurl+"||"+open_aurl
+        bid_obj["crid"]=idea_id
+        #set adm
+        idea_ad_type=idea_json["type"]
+        if idea_ad_type=="banner_text":
+            text=idea_json["alt"]
+            adm=g_text_template %(text)
+        elif idea_ad_type=="banner_android" or idea_ad_type=="banner_iphone" or idea_ad_type=="banner_ipad":
+            img_src="http://mobile-ad.shoozen.net/"+idea_json["src"]
+            adm=g_banner_template %(img_src)        
+        else:
+            img_src="http://mobile-ad.shoozen.net/"+idea_json["src"]
+            ext_obj["instl"]=1
+            size_id=idea_json["size_id"]
+            size_str=self.adx_id_map.size_dict[size_id]    
+            width=int(size_str.split("x")[0])
+            height=int(size_str.split("x")[1])
+            adm=g_plaque_template %(img_src,width,height)
+            bid_obj["adw"]=width
+            bid_obj["adh"]=height
+        bid_obj["adm"]=adm
+        #set ctype
+        click_action_id=idea_json["click_action_id"]
+        bid_obj["ctype"]=int(click_action_id)   
+        bid_obj["curl"]=idea_json["link"]           
+        #download
+        if click_action_id=="2":
+            app_name=idea_json["name"]
+            ext_obj["apkname"]="测试.apk"
+            bid_obj["cbundle"]="com.sankuai.meituan"
+        elif click_action_id=='5':
+            bid_obj["curl"]="tel://"+idea_json["link"]           
+        bid_obj["ext"]=ext_obj
+        bid_obj_list.append(bid_obj)   
+        seat_obj["bid"]=bid_obj_list
+        seat_obj_list.append(seat_obj)
+        adx_response_dict["seatbid"]=seat_obj_list
+        logging.info("adx response:%s" %(adx_response_dict))
+        return adx_response_dict
 
 class adx_interface_t:
-    def __init__(self,adx_id_map):
+    def __init__(self,adx_id_map,conf):
         self.adx_id_map=adx_id_map
         self.interface_dict={}
-        obj=mongo_v1_3_1(self.adx_id_map)   
+        obj=mongo_v1_3_1(self.adx_id_map,conf)   
         self.interface_dict["mongo_v_1_3_1"]=obj
-        obj=mongo_v1_2(self.adx_id_map)
+        obj=mongo_v1_2(self.adx_id_map,conf)
         self.interface_dict["mongo_v_1_2"]=obj
 
     def get_obj(self,channel):

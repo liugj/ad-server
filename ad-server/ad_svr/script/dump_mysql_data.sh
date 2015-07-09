@@ -3,7 +3,7 @@ source ./func.sh
 source ../conf/dump_mysql_data.conf
 
 #dump common data
-table_list=(regions ages categories classification devices groups industries network operators os sizes age_idea ban_idea category_idea classify_idea device_idea  idea_industry idea_network idea_operator idea_os idea_region size_type)
+table_list=(regions ages categories classification devices groups industries network operators os sizes age_idea ban_idea category_idea classify_idea device_idea  idea_industry idea_network idea_operator idea_os idea_region size_type click_actions)
 numvalues=${#table_list[@]}
 for (( i=0; i < numvalues; i++ ));  
 do

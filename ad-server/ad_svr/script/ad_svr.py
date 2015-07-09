@@ -18,6 +18,7 @@ from adx_interface import adx_interface_t
 from build_data import *
 from ip_region_parse import ip_parse_t
 from filter import filter_t
+from rank_bid import rank_bid_t
 g_conf=ConfigParser.ConfigParser()
                
 
@@ -25,9 +26,9 @@ def task_callback(gearman_worker, job):
     res_dict={}
     res_dict['header']={}
     res_dict['header']['ip']=g_conf.get("gearman","ip")
-    bid_dict={}
+    response_dict={}
     global g_adx_interface
-    
+    global g_rank_bid   
     try:
         filter_obj=filter_t(g_invert_idx_mgr)
         req_dict=msgpack.unpackb(job.data)
@@ -38,11 +39,15 @@ def task_callback(gearman_worker, job):
         region_result_list=g_ip_obj.search(parse_req_dict["ip"])
         parse_req_dict["region"]=region_result_list
         available_idea_list=filter_obj.filter(parse_req_dict)
+        (win_idea_id,bid)=g_rank_bid.rank_bid(available_idea_list,g_idx_mgr["idea"])
+        idea_json_dict=g_idx_mgr["idea"].search(win_idea_id)
+        #create response dict
+        response_dict=adx_interface_obj.create_adx_response(win_idea_id,idea_json_dict,adx_req_dict,bid)
         logging.debug("parse req dict:%s" %(parse_req_dict))
     except Exception as e:
         logging.warning("error:%s" %(e))
     logging.info("req:\001%s" %(json.dumps(adx_req_dict)))
-    res_dict['response']=bid_dict
+    res_dict['response']=response_dict
     logging.debug('response:%s' %(res_dict))
     return msgpack.packb(res_dict)    
 
@@ -73,8 +78,7 @@ def init():
     #load adx map
     adx_id_obj=adx_id_map(g_conf)
     global g_adx_interface
-    g_adx_interface=adx_interface_t(adx_id_obj)
-    logging.info("init complete")
+    g_adx_interface=adx_interface_t(adx_id_obj,g_conf)
     
     global g_invert_idx_mgr
     g_invert_idx_mgr={}
@@ -95,8 +99,12 @@ def init():
     #init ip region
     global g_ip_obj
     g_ip_obj=ip_parse_t(g_conf.get("file","ip_table"),g_conf.get("file","ip_region"))   
-    return [service_para,service_name,process_num]
 
+    #init rank bit module
+    global g_rank_bid
+    g_rank_bid=rank_bid_t()
+    logging.info("init complete")
+    return [service_para,service_name,process_num]
 
 if __name__=="__main__":
     [service_para,service_name,process_num]=init()          

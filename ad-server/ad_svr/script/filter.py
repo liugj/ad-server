@@ -75,5 +75,5 @@ class filter_t:
         for idea_id in dict_temp:
             result_id_list.append(idea_id)
         logging.debug("result_id_list:%s" %(result_id_list))
-        
+        return result_id_list
         
