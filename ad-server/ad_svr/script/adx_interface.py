@@ -147,6 +147,7 @@ class mongo_v1_3_1:
                 ad_type="unknown"
         else:
             ad_type="unknown"
+        parse_req_dict["impid"]=imp_dict["impid"]
         parse_req_dict["type"]=[]
         combine_key=ad_type+"_"+device_id
         type=get_value(self.adx_id_map.search_type_dict,combine_key)
@@ -174,7 +175,7 @@ class mongo_v1_3_1:
         logging.debug("%s" %(parse_req_dict))
         return parse_req_dict        
        
-    def create_adx_response(self,idea_id,idea_json,adx_req_dict,bid):
+    def create_adx_response(self,parse_req_dict,idea_id,idea_json,adx_req_dict,bid):
         adx_response_dict={}
         ext_obj={}
         adx_response_dict["id"]=adx_req_dict["id"]
@@ -192,10 +193,20 @@ class mongo_v1_3_1:
         bid_obj["impid"]=imp_id
         bid_obj["price"]=bid
         bid_obj["adid"]=idea_id
+        dsp_info_dict={}
+        dsp_info_dict["device"]=parse_req_dict["device"]
+        dsp_info_dict["network"]=parse_req_dict["network"]
+        dsp_info_dict["operator"]=parse_req_dict["operator"]
+        dsp_info_dict["classification"]=",".join(parse_req_dict["class_list"])
+        dsp_info_dict["region"]=str(parse_req_dict["region"][2])+","+str(parse_req_dict["region"][3])
+        dsp_url=""
+        for key,value in dsp_info_dict.items():
+            dsp_url+=str(key)+"*"+str(value)+"$$$"
+        dsp_url=dsp_url.rstrip("$$$")    
         #set url
-        bid_obj["nurl"]=self.conf.get("url","nurl")+imp_id+"&win_price=#WIN_PRICE#"+"&idea_id="+idea_id
-        bid_obj["cturl"]=[self.conf.get("url","cturl")+imp_id+"&idea_id="+idea_id]
-        bid_obj["iurl"]=self.conf.get("url","iurl")+imp_id+"&idea_id="+idea_id
+        bid_obj["nurl"]=self.conf.get("url","nurl")+imp_id+"$$$win_price*#WIN_PRICE#"+"$$$idea_id*"+idea_id
+        bid_obj["cturl"]=[self.conf.get("url","cturl")+imp_id+"$$$idea_id*"+idea_id]
+        bid_obj["iurl"]=self.conf.get("url","iurl")+imp_id+"$$$idea_id*"+idea_id+"$$$"+dsp_url
         download_aurl=self.conf.get("url","download_aurl")+imp_id+"$$$idea_id*"+idea_id
         install_aurl=self.conf.get("url","install_aurl")+imp_id+"$$$idea_id*"+idea_id
         open_aurl=self.conf.get("url","open_aurl")+imp_id+"$$$idea_id*"+idea_id
@@ -211,14 +222,19 @@ class mongo_v1_3_1:
             adm=g_banner_template %(img_src)        
         else:
             img_src="http://mobile-ad.shoozen.net/"+idea_json["src"]
-            ext_obj["instl"]=1
             size_id=idea_json["size_id"]
-            size_str=self.adx_id_map.size_dict[size_id]    
+            size_json_dict=self.adx_id_map.size_dict[size_id]    
+            size_str=size_json_dict["size_str"]
+            is_full=size_json_dict["is_full"]
             width=int(size_str.split("x")[0])
             height=int(size_str.split("x")[1])
             adm=g_plaque_template %(img_src,width,height)
             bid_obj["adw"]=width
             bid_obj["adh"]=height
+            if is_full=="N":
+                ext_obj["instl"]=1
+            else:
+                ext_obj["instl"]=2
         bid_obj["adm"]=adm
         #set ctype
         click_action_id=idea_json["click_action_id"]
@@ -227,8 +243,8 @@ class mongo_v1_3_1:
         #download
         if click_action_id=="2":
             app_name=idea_json["name"]
-            ext_obj["apkname"]="测试.apk"
-            bid_obj["cbundle"]="com.sankuai.meituan"
+            ext_obj["apkname"]=app_name
+            bid_obj["cbundle"]=idea_json["link_text"]
         elif click_action_id=='5':
             bid_obj["curl"]="tel://"+idea_json["link"]           
         bid_obj["ext"]=ext_obj
@@ -236,7 +252,7 @@ class mongo_v1_3_1:
         seat_obj["bid"]=bid_obj_list
         seat_obj_list.append(seat_obj)
         adx_response_dict["seatbid"]=seat_obj_list
-        logging.info("adx response:%s" %(adx_response_dict))
+        #logging.info("adx response:%s" %(adx_response_dict))
         return adx_response_dict
 
 class adx_interface_t:

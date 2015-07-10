@@ -49,9 +49,10 @@ class adx_id_map:
             id=file_obj.get_value("id",data_list)
             width=file_obj.get_value("width",data_list)
             height=file_obj.get_value("height",data_list)
+            is_full=file_obj.get_value("is_full",data_list)
             size_str=width+"x"+height
             self.size_invert_dict[size_str]=id
-            self.size_dict[id]=size_str
+            self.size_dict[id]={"size_str":size_str,"is_full":is_full}
         fp=open(conf.get("file","type_size_join"),"r")
         file_obj=file_process_t()
         line_cnt=0

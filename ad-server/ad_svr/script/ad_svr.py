@@ -29,6 +29,7 @@ def task_callback(gearman_worker, job):
     response_dict={}
     global g_adx_interface
     global g_rank_bid   
+    dsp_info_dict={}
     try:
         filter_obj=filter_t(g_invert_idx_mgr)
         req_dict=msgpack.unpackb(job.data)
@@ -41,12 +42,15 @@ def task_callback(gearman_worker, job):
         available_idea_list=filter_obj.filter(parse_req_dict)
         (win_idea_id,bid)=g_rank_bid.rank_bid(available_idea_list,g_idx_mgr["idea"])
         idea_json_dict=g_idx_mgr["idea"].search(win_idea_id)
+        bid_info_dict={"bid":bid,"win_idea_id":win_idea_id}
         #create response dict
-        response_dict=adx_interface_obj.create_adx_response(win_idea_id,idea_json_dict,adx_req_dict,bid)
-        logging.debug("parse req dict:%s" %(parse_req_dict))
+        response_dict=adx_interface_obj.create_adx_response(parse_req_dict,win_idea_id,idea_json_dict,adx_req_dict,bid)
+        dsp_info_dict["bid"]=bid_info_dict
+        dsp_info_dict["request"]=parse_req_dict
+        #logging.debug("parse req dict:%s" %(parse_req_dict))
     except Exception as e:
         logging.warning("error:%s" %(e))
-    logging.info("req:\001%s" %(json.dumps(adx_req_dict)))
+    logging.info("req:\001%s\001%s" %(json.dumps(adx_req_dict),json.dumps(dsp_info_dict)))
     res_dict['response']=response_dict
     logging.debug('response:%s' %(res_dict))
     return msgpack.packb(res_dict)    
@@ -65,7 +69,7 @@ def server_run(parameter,service_name,task_callback):
 def init():
     timestamp=datetime.datetime.now().strftime("%Y-%m-%d-%H")
     g_conf.read("../conf/ad_svr.conf")
-    logging.basicConfig(level=logging.DEBUG,
+    logging.basicConfig(level=logging.INFO,
                 format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                 datefmt='[%Y-%m_%d %H:%M:%S]',
                 filename='../log/ad_svr.'+timestamp+'.log',

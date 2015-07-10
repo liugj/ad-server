@@ -1,0 +1,4 @@
+use mis;set names utf8;
+insert into consumptions(user_id,plan_id,idea_id,price,date,updated_at) values('7','29','19','4.500000','2015-07-09','2015-07-09 14:04:00');
+insert into consumptions(user_id,plan_id,idea_id,price,date,updated_at) values('7','35','27','0.000116','2015-07-09','2015-07-09 14:04:00');
+update basics set consumption_total=consumption_total+4.500116 where id='7';

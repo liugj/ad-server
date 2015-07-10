@@ -57,7 +57,10 @@ def create_valid_idea():
             plan_consume_dict[plan_id]+=consume
         else:
             plan_consume_dict[plan_id]=consume
-        idea_consume_dict[idea_id]=consume
+        if idea_id in idea_consume_dict:
+            idea_consume_dict[idea_id]+=consume
+        else:
+            idea_consume_dict[idea_id]=consume
     fp.close()
 
     #create valid plan

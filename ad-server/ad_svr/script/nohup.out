@@ -1,0 +1,893 @@
+++ ps ux
+++ grep ad_svr
+++ awk '{print $2}'
++ pid_list='17745
+17880
+17957
+17958
+17959
+17960
+17961
+18052'
++ echo 0
++ nohup python ad_svr.py
+++ cat ../data/init_done
++ init_flag=0
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=1
++ sleep 1
++ '[' 1 -eq 0 ']'
++ kill -15 17745 17880 17957 17958 17959 17960 17961 18052
+restart.sh: line 11: kill: (17880) - No such process
+restart.sh: line 11: kill: (18052) - No such process
+++ ps ux
+++ grep ad_svr
+++ awk '{print $2}'
++ pid_list='18054
+18247
+18248
+18249
+18250
+18251
+18420
+18777'
++ echo 0
++ nohup python ad_svr.py
+++ cat ../data/init_done
++ init_flag=0
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=1
++ sleep 1
++ '[' 1 -eq 0 ']'
++ kill -15 18054 18247 18248 18249 18250 18251 18420 18777
+restart.sh: line 11: kill: (18777) - No such process
+++ ps ux
+++ grep ad_svr
+++ awk '{print $2}'
++ pid_list='18779
+18796
+18797
+18798
+18799
+18800
+18839'
++ echo 0
++ nohup python ad_svr.py
+++ cat ../data/init_done
++ init_flag=0
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=1
++ sleep 1
++ '[' 1 -eq 0 ']'
++ kill -15 18779 18796 18797 18798 18799 18800 18839
+restart.sh: line 11: kill: (18839) - No such process
+++ ps ux
+++ grep ad_svr
+++ awk '{print $2}'
++ pid_list='18841
+18858
+18859
+18860
+18861
+18862
+18927'
++ echo 0
++ nohup python ad_svr.py
+++ cat ../data/init_done
++ init_flag=0
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=1
++ sleep 1
++ '[' 1 -eq 0 ']'
++ kill -15 18841 18858 18859 18860 18861 18862 18927
+restart.sh: line 11: kill: (18927) - No such process
+++ ps ux
+++ grep ad_svr
+++ awk '{print $2}'
++ pid_list='18929
+18946
+18947
+18948
+18949
+18950
+19007'
++ echo 0
++ nohup python ad_svr.py
+++ cat ../data/init_done
++ init_flag=0
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=1
++ sleep 1
++ '[' 1 -eq 0 ']'
++ kill -15 18929 18946 18947 18948 18949 18950 19007
+restart.sh: line 11: kill: (19007) - No such process
+++ ps ux
+++ grep ad_svr
+++ awk '{print $2}'
++ pid_list='19009
+19026
+19027
+19028
+19029
+19030
+19037'
++ echo 0
++ nohup python ad_svr.py
+++ cat ../data/init_done
++ init_flag=0
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=1
++ sleep 1
++ '[' 1 -eq 0 ']'
++ kill -15 19009 19026 19027 19028 19029 19030 19037
+restart.sh: line 11: kill: (19037) - No such process
+++ ps ux
+++ grep ad_svr
+++ awk '{print $2}'
++ pid_list='19039
+19080
+19081
+19082
+19083
+19084
+19114'
++ echo 0
++ nohup python ad_svr.py
+++ cat ../data/init_done
++ init_flag=0
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=1
++ sleep 1
++ '[' 1 -eq 0 ']'
++ kill -15 19039 19080 19081 19082 19083 19084 19114
+restart.sh: line 11: kill: (19114) - No such process
+++ ps ux
+++ grep ad_svr
+++ awk '{print $2}'
++ pid_list='19116
+19133
+19134
+19135
+19136
+19137
+19164
+19168'
++ echo 0
++ nohup python ad_svr.py
+++ cat ../data/init_done
++ init_flag=0
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=1
++ sleep 1
++ '[' 1 -eq 0 ']'
++ kill -15 19116 19133 19134 19135 19136 19137 19164 19168
+restart.sh: line 11: kill: (19168) - No such process
+++ ps ux
+++ grep ad_svr
+++ awk '{print $2}'
++ pid_list='19170
+19187
+19188
+19189
+19190
+19191
+19222'
++ echo 0
++ nohup python ad_svr.py
+++ cat ../data/init_done
++ init_flag=0
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=1
++ sleep 1
++ '[' 1 -eq 0 ']'
++ kill -15 19170 19187 19188 19189 19190 19191 19222
+restart.sh: line 11: kill: (19222) - No such process
+++ ps ux
+++ grep ad_svr
+++ awk '{print $2}'
++ pid_list='19224
+19241
+19242
+19243
+19244
+19245
+19275'
++ echo 0
++ nohup python ad_svr.py
+++ cat ../data/init_done
++ init_flag=0
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=1
++ sleep 1
++ '[' 1 -eq 0 ']'
++ kill -15 19224 19241 19242 19243 19244 19245 19275
+restart.sh: line 11: kill: (19275) - No such process
+++ ps ux
+++ grep ad_svr
+++ awk '{print $2}'
++ pid_list='19277
+19294
+19295
+19296
+19297
+19298
+19678'
++ echo 0
++ nohup python ad_svr.py
+++ cat ../data/init_done
++ init_flag=0
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=0
++ sleep 1
++ '[' 0 -eq 0 ']'
+++ cat ../data/init_done
++ init_flag=1
++ sleep 1
++ '[' 1 -eq 0 ']'
++ kill -15 19277 19294 19295 19296 19297 19298 19678
+restart.sh: line 11: kill: (19678) - No such process
+Traceback (most recent call last):
+  File "ad_svr.py", line 102, in <module>
+    [service_para,service_name,process_num]=init()          
+  File "ad_svr.py", line 74, in init
+    adx_id_obj=adx_id_map(g_conf)
+  File "/opt/userhome/superyc/ad_mobile/online/ad_server/script/adx_id_map.py", line 77, in __init__
+    fp=open(conf.get("file","manual_operator"),"r")
+IOError: [Errno 2] No such file or directory: '../data/manual_operator.txt'
+Traceback (most recent call last):
+  File "ad_svr.py", line 102, in <module>
+    [service_para,service_name,process_num]=init()          
+  File "ad_svr.py", line 74, in init
+    adx_id_obj=adx_id_map(g_conf)
+  File "/opt/userhome/superyc/ad_mobile/online/ad_server/script/adx_id_map.py", line 77, in __init__
+    fp=open(conf.get("file","manual_operator"),"r")
+IOError: [Errno 2] No such file or directory: '../data/manual_operator.txt'
+Traceback (most recent call last):
+  File "ad_svr.py", line 102, in <module>
+    [service_para,service_name,process_num]=init()          
+  File "ad_svr.py", line 74, in init
+    adx_id_obj=adx_id_map(g_conf)
+  File "/opt/userhome/superyc/ad_mobile/online/ad_server/script/adx_id_map.py", line 87, in __init__
+    code=file_obj.get_value("code")
+TypeError: get_value() takes exactly 3 arguments (2 given)
+Traceback (most recent call last):
+  File "ad_svr.py", line 102, in <module>
+    [service_para,service_name,process_num]=init()          
+  File "ad_svr.py", line 74, in init
+    adx_id_obj=adx_id_map(g_conf)
+  File "/opt/userhome/superyc/ad_mobile/online/ad_server/script/adx_id_map.py", line 87, in __init__
+    code=file_obj.get_value("code",data_list)
+  File "/opt/userhome/superyc/ad_mobile/online/ad_server/script/process_file.py", line 18, in get_value
+    return data_list[idx]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "ad_svr.py", line 21, in <module>
+    from rank_bid import rank_bid_t
+  File "/opt/userhome/superyc/ad_mobile/online/ad_server/script/rank_bid.py", line 5, in <module>
+    import date_time
+ImportError: No module named date_time
+  File "ad_svr.py", line 42
+    (win_idea_id,bid_=g_rank_bid.rank_bid(available_idea_list,g_idx_mgr["idea"])
+                     ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "ad_svr.py", line 17, in <module>
+    from adx_interface import adx_interface_t
+  File "/opt/userhome/superyc/ad_mobile/online/ad_server/script/adx_interface.py", line 206
+    adm=g_banner_template %(img_src)        bid_obj["adm"]=adm
+                                                  ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "ad_svr.py", line 17, in <module>
+    from adx_interface import adx_interface_t
+  File "/opt/userhome/superyc/ad_mobile/online/ad_server/script/adx_interface.py", line 231
+    elif click_action_id='5':
+                        ^
+SyntaxError: invalid syntax
