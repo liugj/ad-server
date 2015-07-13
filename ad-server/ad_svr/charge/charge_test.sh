@@ -27,7 +27,7 @@ then
     echo "0" > $lock_flag_file
     exit 1
 fi
-
 echo "0" > $lock_flag_file
+exit 1
 echo $time_now > timestamp
 

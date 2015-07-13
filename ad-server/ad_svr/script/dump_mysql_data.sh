@@ -32,7 +32,7 @@ then
 fi
 
 #dump plans
-sql="set names utf8;use mis;select id as plan_id,name,user_id,budget from plans where status='0'"
+sql="set names utf8;use mis;select id as plan_id,name,user_id,budget,start_time,end_time from plans where status='0'"
 ${MYSQL} -h${HOST} -u${USER} -p${PASSWD} -P${PORT} -e"$sql"  > ../data/plans.txt
 if [ $? -ne 0 ]
 then
@@ -51,7 +51,7 @@ then
 fi
 
 #dump ideas
-sql="set names utf8;use mis;select * from ideas where status='0'"
+sql="set names utf8;use mis;select * from ideas where status='3'"
 ${MYSQL} -h${HOST} -u${USER} -p${PASSWD} -P${PORT} -e"$sql"  > ../data/ideas.txt
 if [ $? -ne 0 ]
 then

@@ -77,6 +77,11 @@ def create_valid_idea():
         plan_id=file_obj.get_value("plan_id",data_list)
         user_id=file_obj.get_value("user_id",data_list)
         budget=float(file_obj.get_value("budget",data_list))
+        start_time=file_obj.get_value("start_time",data_list)
+        end_time=file_obj.get_value("end_time",data_list)
+        if date_str<start_time or date_str>end_time:
+            logging.debug("date not in date range idea_id[%s]" %(plan_id))
+            continue
         if not(user_id in valid_user_dict):
             logging.debug("plan id[%s] user id[%s] no budget" %(plan_id,user_id))
             continue
@@ -104,8 +109,6 @@ def create_valid_idea():
         idea_id=file_obj.get_value("id",data_list)
         plan_id=file_obj.get_value("plan_id",data_list)
         budget=float(file_obj.get_value("budget",data_list))
-        start_time=file_obj.get_value("start_time",data_list)
-        end_time=file_obj.get_value("end_time",data_list)
         time_range_list=file_obj.get_value("timerange",data_list)
         if time_range_list!=None and time_range_list!="NULL" and len(time_range_list)>0:
             time_range_list=time_range_list.split(",")
@@ -115,9 +118,6 @@ def create_valid_idea():
             if not(hour_idx in dict_temp):
                 logging.debug("hour idx[%s] not in hour range" %(hour_idx))
                 continue
-        if date_str<start_time or date_str>end_time:
-            logging.debug("date not in date range idea_id[%s]" %(idea_id))
-            continue
         if not(plan_id in valid_plan_dict):
             logging.debug("plan id[%s] no budget" %(plan_id))
             continue

@@ -12,6 +12,7 @@ import os
 g_conf=ConfigParser.ConfigParser()
 from process_file import file_process_t
 import ctypes
+import json
 
 def load_idea_info(idea_operator_file,idea_file):
     fp=open(idea_operator_file,"r")
@@ -64,9 +65,10 @@ def charge(url):
     idea_id=ad_action_dict["idea_id"]
     idea_info_dict=g_idea_dict[idea_id]
     charge_type=idea_info_dict["charge_type"]
+    imp_id=ad_action_dict["id"]
     #charge_type=g_idea_dict[idea_id]["charge_type"]
     
-    result_dict={"cost":0.0,"price":0.0,"idea_id":idea_id}
+    result_dict={"cost":0.0,"price":0.0,"idea_id":idea_id,"impid":imp_id,"charge_type":charge_type}
     if ad_action_dict["type"]=="win_notice":
         win_price_coded=ad_action_dict["win_price"]
         win_cost_ori=g_decryter.TestWinningPrice(win_price_coded)
@@ -79,6 +81,15 @@ def charge(url):
         result_dict["price"]=idea_info_dict["basic_price"]
     elif ad_action_dict["type"]=="open" and charge_type=="cpa":
         result_dict["price"]=idea_info_dict["basic_price"]
+    log_dict=result_dict.copy()
+    log_dict["price"]*=1000
+    log_dict["cost"]*=1000
+    if result_dict["cost"]>0:
+        logging.info("WIN_NOTICE:%s" %(json.dumps(log_dict)))
+    if result_dict["price"]>0:
+        logging.info("CHARGE:%s" %(json.dumps(log_dict)))
+    else:
+        logging.info("COMMON:%s" %(json.dumps(log_dict)))
     return result_dict
 
 def process_log(last_time_str,now_time_str,sql_file):
@@ -137,18 +148,18 @@ def process_log(last_time_str,now_time_str,sql_file):
             user_price_dict[user_id]+=price
         else:
             user_price_dict[user_id]=price
-        sql_fp.write("insert into consumptions(user_id,plan_id,idea_id,price,date,updated_at) values('%s','%s','%s','%f','%s','%s');\n" %(user_id,plan_id,idea_id,price,last_time_str,last_time.strftime("%Y-%m-%d %H:%M:%S")))
+        sql_fp.write("insert into consumptions(user_id,plan_id,idea_id,price,date,updated_at) values('%s','%s','%s','%f','%s','%s') on DUPLICATE KEY update price=price+'%f';\n" %(user_id,plan_id,idea_id,price,last_time_str,last_time.strftime("%Y-%m-%d %H:%M:%S"),price))
                       
     for user_id in user_price_dict:
         price=user_price_dict[user_id]
         sql_fp.write("update basics set consumption_total=consumption_total+%f where id='%s';\n" %(price,user_id))       
 def init():
-    timestamp=datetime.datetime.now().strftime("%Y-%m-%d")
+    timestamp=datetime.datetime.now().strftime("%Y%m%d%H")
     g_conf.read("../conf/charge_python.conf")
-    logging.basicConfig(level=logging.DEBUG,
+    logging.basicConfig(level=logging.INFO,
                 format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                 datefmt='[%Y-%m_%d %H:%M:%S]',
-                filename='../log/charge_python.'+timestamp+'.log',
+                filename='/opt/log/charge/charge_python.'+timestamp+'.log',
                 filemode='a')
     global g_idea_dict
     g_idea_dict={}
