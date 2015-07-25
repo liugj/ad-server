@@ -13,6 +13,7 @@ g_conf=ConfigParser.ConfigParser()
 from process_file import file_process_t
 import ctypes
 import json
+from SSDB import SSDB
 
 def load_idea_info(idea_operator_file,idea_file):
     fp=open(idea_operator_file,"r")
@@ -55,6 +56,7 @@ def load_idea_info(idea_operator_file,idea_file):
             
 
 def charge(url):
+    global g_ssdb_obj
     item_list=url.split("$$$")
     ad_action_dict={}
     for item in item_list:
@@ -62,13 +64,16 @@ def charge(url):
         key=key_value_list[0]
         value=key_value_list[1]
         ad_action_dict[key]=value
-    idea_id=ad_action_dict["idea_id"]
+    idea_id=ad_action_dict["idea_id"].rstrip(" ").rstrip("&")
     idea_info_dict=g_idea_dict[idea_id]
     charge_type=idea_info_dict["charge_type"]
     imp_id=ad_action_dict["id"]
     #charge_type=g_idea_dict[idea_id]["charge_type"]
     
-    result_dict={"cost":0.0,"price":0.0,"idea_id":idea_id,"impid":imp_id,"charge_type":charge_type}
+    result_dict={"cost":0.0,"price":0.0,"idea_id":idea_id,"impid":imp_id,"charge_type":charge_type,"ad_action":ad_action_dict["type"]}
+    if ad_action_dict["env"]=="test":
+        logging.info("idea_id:%s env test" %(idea_id))
+        return result_dict
     if ad_action_dict["type"]=="win_notice":
         win_price_coded=ad_action_dict["win_price"]
         win_cost_ori=g_decryter.TestWinningPrice(win_price_coded)
@@ -76,11 +81,16 @@ def charge(url):
         result_dict["cost"]=win_cost
         if charge_type=="cpm":
             result_dict["price"]=win_cost*(1+float(g_conf.get("para","default_profit")))
-            
-    elif ad_action_dict["type"]=="click" and charge_type=="click":
+    elif ad_action_dict["type"]=="click" and charge_type=="cpc":
         result_dict["price"]=idea_info_dict["basic_price"]
     elif ad_action_dict["type"]=="open" and charge_type=="cpa":
         result_dict["price"]=idea_info_dict["basic_price"]
+    elif ad_action_dict["type"]=="show":
+        dpid=ad_action_dict["dpid"]
+        key=dpid+"\001"+idea_id
+        ret_list=str(g_ssdb_obj.request('incr', [key, '1'])).split(" ")
+        if ret_list[0]!="ok":
+            logging.warning("set values to ssdb failed[%s]" %(key))
     log_dict=result_dict.copy()
     log_dict["price"]*=1000
     log_dict["cost"]*=1000
@@ -99,30 +109,41 @@ def process_log(last_time_str,now_time_str,sql_file):
     now_time=datetime.datetime.strptime(now_time_str,"%Y-%m-%d-%H:%M:%S")
 
     file_prefix_list=[]
-    file_prefix=last_time.strftime("%Y%m%d%H")
-    file_prefix_list.append(file_prefix)
+    #file_prefix=last_time.strftime("%Y%m%d%H")
+    #file_prefix_list.append(file_prefix)
     minute=last_time.strftime("%M")
-    if int(minute)<5:
+    file_list=[]
+    if int(minute)<10:
         last_hour=int(last_time.strftime("%H"))-1
         file_prefix=last_time.strftime("%Y%m%d")+str(last_hour)
+        #file_list=glob.glob(g_conf.get("log","nginx_log")+"/"+file_prefix+"*") 
         file_prefix_list.append(file_prefix)
     idea_charge_dict={}
-    for time_prefix in file_prefix_list:
-        file_list=glob.glob(g_conf.get("log","nginx_log")+"/"+time_prefix+"*") 
-        for log_file in  file_list:
-            logging.debug("process file:%s" %(log_file))
+    #for time_prefix in file_prefix_list:
+    log_file_list=[]
+    #print file_prefix_list
+    log_file_list.append(g_conf.get("log","nginx_log")+"/"+"monitor.shoozen.net.access.log")
+    for file_prefix in file_prefix_list:
+        log_file_list+=glob.glob(g_conf.get("log","nginx_log")+"/"+file_prefix+"*monitor.shoozen*")
+        
+    for log_file in log_file_list:
+            print log_file
             fp=open(log_file,"r")
             for line in fp:
                 line=line.rstrip("\r\n")
                 #print line
-                pattern2=re.compile(r"GET /track.gif\?(.*?)HTTP")
-                result=pattern.match(line)
-                ip=result.group(1)
-                url_ori=result.group(4)
-                url=pattern2.match(url_ori).group(1)
-                time_stamp_list=result.group(3).split(" ")
-                time_stamp_str=time_stamp_list[0]
-                time_datetime=datetime.datetime.strptime(time_stamp_str,"%d/%b/%Y:%H:%M:%S")
+                try:
+                    pattern2=re.compile(r"GET /track.gif\?(.*?)HTTP")
+                    result=pattern.match(line)
+                    ip=result.group(1)
+                    url_ori=result.group(4)
+                    url=pattern2.match(url_ori).group(1)
+                    time_stamp_list=result.group(3).split(" ")
+                    time_stamp_str=time_stamp_list[0]
+                    time_datetime=datetime.datetime.strptime(time_stamp_str,"%d/%b/%Y:%H:%M:%S")
+                except:
+                    logging.warning("invalid line:%s" %(line))
+                    continue   
                 if time_datetime<last_time or time_datetime>now_time:
                     logging.debug("skip time:%s start time:%s end_time:%s" %(time_stamp_str,last_time_str,now_time_str))
                     continue
@@ -148,7 +169,7 @@ def process_log(last_time_str,now_time_str,sql_file):
             user_price_dict[user_id]+=price
         else:
             user_price_dict[user_id]=price
-        sql_fp.write("insert into consumptions(user_id,plan_id,idea_id,price,date,updated_at) values('%s','%s','%s','%f','%s','%s') on DUPLICATE KEY update price=price+'%f';\n" %(user_id,plan_id,idea_id,price,last_time_str,last_time.strftime("%Y-%m-%d %H:%M:%S"),price))
+        sql_fp.write("insert into consumptions(user_id,plan_id,idea_id,price,date,updated_at,cost) values('%s','%s','%s','%f','%s','%s','%f') on DUPLICATE KEY update price=price+'%f',cost=cost+'%f';\n" %(user_id,plan_id,idea_id,price,last_time_str,last_time.strftime("%Y-%m-%d %H:%M:%S"),cost,price,cost))
                       
     for user_id in user_price_dict:
         price=user_price_dict[user_id]
@@ -166,6 +187,8 @@ def init():
     load_idea_info(g_conf.get("file","idea_operate"),g_conf.get("file","idea"))
     global g_decryter
     g_decryter=ctypes.CDLL("./libdecrypter.so")
+    global g_ssdb_obj
+    g_ssdb_obj = SSDB(g_conf.get("ssdb","ip"),int(g_conf.get("ssdb","freq_control_port")))
 
 if __name__=="__main__":
     init()

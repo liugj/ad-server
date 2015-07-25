@@ -19,6 +19,10 @@ from build_data import *
 from ip_region_parse import ip_parse_t
 from filter import filter_t
 from rank_bid import rank_bid_t
+from transform_id import transform_id_t
+from predict import predict_model_t
+from extract_feature import extract_feature_t
+from idea_operate import idea_operator_t
 g_conf=ConfigParser.ConfigParser()
                
 
@@ -29,9 +33,10 @@ def task_callback(gearman_worker, job):
     response_dict={}
     global g_adx_interface
     global g_rank_bid   
+    global g_filter_obj
+    global g_id_obj
     dsp_info_dict={}
     try:
-        filter_obj=filter_t(g_invert_idx_mgr)
         req_dict=msgpack.unpackb(job.data)
         version=req_dict["header"]["version"]
         adx_req_dict=json.loads(req_dict["request"])
@@ -39,10 +44,11 @@ def task_callback(gearman_worker, job):
         parse_req_dict=adx_interface_obj.parse_bid_request(adx_req_dict)
         region_result_list=g_ip_obj.search(parse_req_dict["ip"])
         parse_req_dict["region"]=region_result_list
-        available_idea_list=filter_obj.filter(parse_req_dict)
-        (win_idea_id,bid)=g_rank_bid.rank_bid(available_idea_list,g_idx_mgr["idea"])
+        available_idea_list=g_filter_obj.filter(parse_req_dict)
+        [win_idea_id,bid]=g_rank_bid.rank_bid(adx_req_dict,available_idea_list,g_idx_mgr["idea"])
         idea_json_dict=g_idx_mgr["idea"].search(win_idea_id)
         bid_info_dict={"bid":bid,"win_idea_id":win_idea_id}
+        logging.debug("bid info dict:%s" %(bid_info_dict))
         #create response dict
         response_dict=adx_interface_obj.create_adx_response(parse_req_dict,win_idea_id,idea_json_dict,adx_req_dict,bid)
         dsp_info_dict["bid"]=bid_info_dict
@@ -50,7 +56,7 @@ def task_callback(gearman_worker, job):
         #logging.debug("parse req dict:%s" %(parse_req_dict))
     except Exception as e:
         logging.warning("error:%s" %(e))
-    logging.info("req:\001%s\001%s" %(json.dumps(adx_req_dict),json.dumps(dsp_info_dict)))
+    logging.info("REQ:\001%s\001%s" %(json.dumps(adx_req_dict),json.dumps(dsp_info_dict)))
     res_dict['response']=response_dict
     logging.debug('response:%s' %(res_dict))
     return msgpack.packb(res_dict)    
@@ -103,12 +109,29 @@ def init():
     #init ip region
     global g_ip_obj
     g_ip_obj=ip_parse_t(g_conf.get("file","ip_table"),g_conf.get("file","ip_region"))   
+    #init id obj
+    global g_id_obj
+    g_id_obj=transform_id_t(g_conf.get("file","fea_id_file"))
+    
+    #init fea obj
+    extract_fea_obj=extract_feature_t(g_ip_obj,g_id_obj)
+    #init model obj
+    model_obj=predict_model_t(g_conf.get("file","model"))
+    #init idea operator
+    operator_obj=idea_operator_t(g_conf.get("file","idea_operate"))
 
     #init rank bit module
     global g_rank_bid
-    g_rank_bid=rank_bid_t()
+    g_rank_bid=rank_bid_t(extract_fea_obj,model_obj,operator_obj)
     logging.info("init complete")
+
+    #init filter
+    global g_filter_obj
+    g_filter_obj=filter_t(g_invert_idx_mgr,g_conf)
+
     return [service_para,service_name,process_num]
+
+    
 
 if __name__=="__main__":
     [service_para,service_name,process_num]=init()          

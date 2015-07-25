@@ -23,7 +23,7 @@ from users a
 left join
 basics b
 on a.id=b.id
-where a.id='7' and a.status='0'"
+where a.status='0'"
 ${MYSQL} -h${HOST} -u${USER} -p${PASSWD} -P${PORT} -e"$sql"  > ../data/users.txt
 if [ $? -ne 0 ]
 then
@@ -51,7 +51,7 @@ then
 fi
 
 #dump ideas
-sql="set names utf8;use mis;select * from ideas where status='3'"
+sql="set names utf8;use mis;select * from ideas"
 ${MYSQL} -h${HOST} -u${USER} -p${PASSWD} -P${PORT} -e"$sql"  > ../data/ideas.txt
 if [ $? -ne 0 ]
 then
@@ -81,4 +81,25 @@ then
     WriteLog "update smooth failed" "Warning" ${LOG_FILE}
     exit 1   
 fi
+
+#create index
+python create_index.py
+if [ $? -ne 0 ]
+then
+    WriteLog "create index failed" "Warning" ${LOG_FILE}
+    exit 1   
+fi
+
+
+#restart
+pid_list=`ps ux | grep "ad_svr.py" | awk '{print $2}'`
+echo "0" > ../data/init_done
+nohup python ad_svr.py&
+init_flag=`cat ../data/init_done`
+while [ $init_flag -eq 0 ]
+do
+init_flag=`cat ../data/init_done`
+sleep 1
+done
+kill -15 $pid_list
 

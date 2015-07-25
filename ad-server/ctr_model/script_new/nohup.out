@@ -1,0 +1,58 @@
++ CHARGE_LOG_PATH=/opt/log/charge
++ NGINX_LOG_PATH=/opt/log/nginx
++ AD_SVR_LOG_PATH=/opt/userhome/superyc/ad_mobile/online/ad_server/log
++ date=2015-07-16
++ python merge_log.py /opt/log/charge /opt/log/nginx /opt/userhome/superyc/ad_mobile/online/ad_server/log 2015-07-16 ../train_data
++ CHARGE_LOG_PATH=/opt/log/charge
++ NGINX_LOG_PATH=/opt/log/nginx
++ AD_SVR_LOG_PATH=/opt/userhome/superyc/ad_mobile/online/ad_server/log
++ date=2015-07-17
++ python merge_log.py /opt/log/charge /opt/log/nginx /opt/userhome/superyc/ad_mobile/online/ad_server/log 2015-07-17 ../train_data
++ CHARGE_LOG_PATH=/opt/log/charge
++ NGINX_LOG_PATH=/opt/log/nginx
++ AD_SVR_LOG_PATH=/opt/userhome/superyc/ad_mobile/online/ad_server/log
++ date=2015-07-18
++ python merge_log.py /opt/log/charge /opt/log/nginx /opt/userhome/superyc/ad_mobile/online/ad_server/log 2015-07-18 ../train_data
++ CHARGE_LOG_PATH=/opt/log/charge
++ NGINX_LOG_PATH=/opt/log/nginx
++ AD_SVR_LOG_PATH=/opt/userhome/superyc/ad_mobile/online/ad_server/log
++ date=2015-07-19
++ python merge_log.py /opt/log/charge /opt/log/nginx /opt/userhome/superyc/ad_mobile/online/ad_server/log 2015-07-19 ../train_data
++ CHARGE_LOG_PATH=/opt/log/charge
++ NGINX_LOG_PATH=/opt/log/nginx
++ AD_SVR_LOG_PATH=/opt/userhome/superyc/ad_mobile/online/ad_server/log
++ date=2015-07-15
++ python merge_log.py /opt/log/charge /opt/log/nginx /opt/userhome/superyc/ad_mobile/online/ad_server/log 2015-07-15 ../train_data
++ CHARGE_LOG_PATH=/opt/log/charge
++ NGINX_LOG_PATH=/opt/log/nginx
++ AD_SVR_LOG_PATH=/opt/userhome/superyc/ad_mobile/online/ad_server/log
++ date=2015-07-16
++ python merge_log.py /opt/log/charge /opt/log/nginx /opt/userhome/superyc/ad_mobile/online/ad_server/log 2015-07-16 ../train_data
++ CHARGE_LOG_PATH=/opt/log/charge
++ NGINX_LOG_PATH=/opt/log/nginx
++ AD_SVR_LOG_PATH=/opt/userhome/superyc/ad_mobile/online/ad_server/log
++ date=2015-07-17
++ python merge_log.py /opt/log/charge /opt/log/nginx /opt/userhome/superyc/ad_mobile/online/ad_server/log 2015-07-17 ../train_data
++ CHARGE_LOG_PATH=/opt/log/charge
++ NGINX_LOG_PATH=/opt/log/nginx
++ AD_SVR_LOG_PATH=/opt/userhome/superyc/ad_mobile/online/ad_server/log
++ date=2015-07-18
++ python merge_log.py /opt/log/charge /opt/log/nginx /opt/userhome/superyc/ad_mobile/online/ad_server/log 2015-07-18 ../train_data
++ CHARGE_LOG_PATH=/opt/log/charge
++ NGINX_LOG_PATH=/opt/log/nginx
++ AD_SVR_LOG_PATH=/opt/userhome/superyc/ad_mobile/online/ad_server/log
++ date=2015-07-19
++ python merge_log.py /opt/log/charge /opt/log/nginx /opt/userhome/superyc/ad_mobile/online/ad_server/log 2015-07-19 ../train_data
+Traceback (most recent call last):
+  File "extract_feature.py", line 150, in <module>
+    type=sys.argv[4]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "extract_feature.py", line 150, in <module>
+    type=sys.argv[4]
+IndexError: list index out of range
++ CHARGE_LOG_PATH=/opt/log/charge
++ NGINX_LOG_PATH=/opt/log/nginx
++ AD_SVR_LOG_PATH=/opt/userhome/superyc/ad_mobile/online/ad_server/log
++ date=2015-07-24
++ python merge_log.py /opt/log/charge /opt/log/nginx /opt/userhome/superyc/ad_mobile/online/ad_server/log 2015-07-24 ../train_data

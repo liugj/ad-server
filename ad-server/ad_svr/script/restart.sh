@@ -1,7 +1,7 @@
 #!bin/sh
-pid_list=`ps ux | grep ad_svr | awk '{print $2}'`
+pid_list=`ps ux | grep ad_svr_dev | awk '{print $2}'`
 echo "0" > ../data/init_done
-nohup python ad_svr.py&
+nohup python ad_svr_dev.py&
 init_flag=`cat ../data/init_done`
 while [ $init_flag -eq 0 ]
 do

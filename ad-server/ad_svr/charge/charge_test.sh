@@ -20,7 +20,7 @@ then
     exit 1
 fi
 
-${MYSQL} -h${HOST} -u${USER} -p${PASSWD} -P${PORT}  < $sql_file.${last_update_time}
+#${MYSQL} -h${HOST} -u${USER} -p${PASSWD} -P${PORT}  < $sql_file.${last_update_time}
 if [ $? -ne 0 ]
 then
     WriteLog "charge failed" "Warning" $LOG_PATH

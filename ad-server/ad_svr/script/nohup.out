@@ -891,3 +891,56 @@ Traceback (most recent call last):
     elif click_action_id='5':
                         ^
 SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "ad_svr.py", line 20, in <module>
+    from filter import filter_t
+  File "/opt/userhome/superyc/ad_mobile/online/ad_server/script/filter.py", line 85
+    if req_ret!=None and int(req_ret)>int(self.conf.get("para","freq_limit"))
+                                                                            ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "ad_svr.py", line 122, in <module>
+    [service_para,service_name,process_num]=init()          
+  File "ad_svr.py", line 77, in init
+    filemode='a')
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 1530, in basicConfig
+    hdlr = FileHandler(filename, mode)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 903, in __init__
+    StreamHandler.__init__(self, self._open())
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 926, in _open
+    stream = open(self.baseFilename, self.mode)
+IOError: [Errno 2] No such file or directory: '/opt/userhome/superyc/ad_mobile/online/ad_server_dev/log/ad_svr.2015-07-23-14.log'
+Traceback (most recent call last):
+  File "ad_svr_dev.py", line 122, in <module>
+    [service_para,service_name,process_num]=init()          
+  File "ad_svr_dev.py", line 77, in init
+    filemode='a')
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 1530, in basicConfig
+    hdlr = FileHandler(filename, mode)
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 903, in __init__
+    StreamHandler.__init__(self, self._open())
+  File "/opt/userhome/superyc/install/python-2.7.6/lib/python2.7/logging/__init__.py", line 926, in _open
+    stream = open(self.baseFilename, self.mode)
+IOError: [Errno 2] No such file or directory: '/opt/userhome/superyc/ad_mobile/online/ad_server_dev/log/ad_svr.2015-07-23-14.log'
+Traceback (most recent call last):
+  File "ad_svr_dev.py", line 137, in <module>
+    [service_para,service_name,process_num]=init()          
+  File "ad_svr_dev.py", line 121, in init
+    operator_obj=idea_operator_t(g_conf.get("file","idea_operate"))
+  File "/opt/userhome/superyc/ad_mobile/online/ad_server_dev/script/idea_operate.py", line 15, in __init__
+    data_list=line.rstrip("\r\n").split("\t")
+AttributeError: 'list' object has no attribute 'rstrip'
+Traceback (most recent call last):
+  File "ad_svr_dev.py", line 137, in <module>
+    [service_para,service_name,process_num]=init()          
+  File "ad_svr_dev.py", line 125, in init
+    g_rank_bid=rank_bid_t(extract_fea_obj,model_obj,operator_obj)
+TypeError: __init__() takes exactly 3 arguments (4 given)
+Traceback (most recent call last):
+  File "ad_svr_dev.py", line 21, in <module>
+    from rank_bid import rank_bid_t
+  File "/opt/userhome/superyc/ad_mobile/online/ad_server_dev/script/rank_bid.py", line 27
+    if prob<operator_dict["thr"]
+                               ^
+SyntaxError: invalid syntax
+python: can't open file 'ad_svr_dev.py': [Errno 2] No such file or directory

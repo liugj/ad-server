@@ -13,9 +13,7 @@ g_conf=ConfigParser.ConfigParser()
 
 
 class extract_feature_t():
-    def __init__(self,ip_obj,id_obj):
-        self.ip_obj=ip_obj
-        self.id_obj=id_obj
+    def __init__(self):
         pass
 
     def extract(self,value,feature_name):
@@ -28,7 +26,8 @@ class extract_feature_t():
         return feature_name+"-"+value   
     
     def extract_region(self,ip_str):
-        region_result_list=self.ip_obj.search(ip_str)
+        global g_ip_obj 
+        region_result_list=g_ip_obj.search(ip_str)
         if region_result_list!=None:
             first_id=region_result_list[2]
             second_id=region_result_list[3]
@@ -44,52 +43,56 @@ class extract_feature_t():
             return "region-0"
    
 
-    def extract_feature(self,time_str,fea_dict,single_fea_list,combine_fea_list):
-        ip_str=fea_dict["device"]["ip"]
-        time_list=time_str.split(":")
-        hour=time_list[0]
-        app_name=fea_dict["app"]["name"]
-        app_type=fea_dict["app"]["cat"][0]
-        app_id=fea_dict["app"]["aid"]
-        manufacture=fea_dict["device"]["make"].lower()
-        device_id=fea_dict["device"]["dpid"]
-        ori_data_list=[ip_str,app_id+"-"+app_name,hour,app_type,manufacture]
-        result_fea_dict={}
-        for i in range(0,len(single_fea_list)):
-            fea_name=single_fea_list[i]      
-            ori_value=ori_data_list[i]
-            fea_str=self.extract(ori_value,fea_name)
-            result_fea_dict[fea_name]=fea_str
-        for combine_fea_name in combine_fea_list:
-            list_temp=combine_fea_name.split("-")
-            fea_name1=list_temp[1]
-            fea_name2=list_temp[2]
-            fea_list1=result_fea_dict[fea_name1].split("\001")
-            fea_list2=result_fea_dict[fea_name2].split("\001")
-            combine_fea_value=""
-            for fea_value1 in fea_list1:
-                for fea_value2 in fea_list2:
-                    combine_fea_value+=fea_value1+"-"+fea_value2
-                    combine_fea_value+="\001"
-            combine_fea_value=combine_fea_value.rstrip("\001")
-            result_fea_dict[combine_fea_name]=combine_fea_value
-        fea_str=""
-        for feature in single_fea_list:
-            fea_str+=result_fea_dict[feature]+"\t"
-        for feature in combine_fea_list:
-            fea_str+=result_fea_dict[feature]+"\t"
-        fea_str=fea_str.rstrip("\t")
-        fea_id_list=[]
-        fea_id_str=""
-        list_temp=fea_str.split("\t")
-        for fea_name in list_temp:
-            fea_id=self.id_obj.get_id(fea_name)
-            fea_id_list.append(fea_id)
-        fea_id_list.sort()
-        for fea_id in fea_id_list:
-            fea_id_str+=str(fea_id)+":1"+" "
-        fea_id_str=fea_id_str.rstrip(" ")
-        return (fea_str,fea_id_str)
+
+
+def extract_feature(time_str,fea_dict,single_fea_list,combine_fea_list):
+    global g_id_obj
+    ip_str=fea_dict["device"]["ip"]
+    time_list=time_str.split(":")
+    hour=time_list[0]
+    app_name=fea_dict["app"]["name"]
+    app_type=fea_dict["app"]["cat"][0]
+    app_id=fea_dict["app"]["aid"]
+    manufacture=fea_dict["device"]["make"].lower()
+    device_id=fea_dict["device"]["dpid"]
+    ori_data_list=[ip_str,app_id+"-"+app_name,hour,app_type,manufacture]
+    fea_obj=extract_feature_t()
+    result_fea_dict={}
+    for i in range(0,len(single_fea_list)):
+        fea_name=single_fea_list[i]      
+        ori_value=ori_data_list[i]
+        fea_str=fea_obj.extract(ori_value,fea_name)
+        result_fea_dict[fea_name]=fea_str
+    for combine_fea_name in combine_fea_list:
+        list_temp=combine_fea_name.split("-")
+        fea_name1=list_temp[1]
+        fea_name2=list_temp[2]
+        fea_list1=result_fea_dict[fea_name1].split("\001")
+        fea_list2=result_fea_dict[fea_name2].split("\001")
+        combine_fea_value=""
+        for fea_value1 in fea_list1:
+            for fea_value2 in fea_list2:
+                combine_fea_value+=fea_value1+"-"+fea_value2
+                combine_fea_value+="\001"
+        combine_fea_value=combine_fea_value.rstrip("\001")
+        result_fea_dict[combine_fea_name]=combine_fea_value
+    fea_str=""
+    for feature in single_fea_list:
+        fea_str+=result_fea_dict[feature]+"\t"
+    for feature in combine_fea_list:
+        fea_str+=result_fea_dict[feature]+"\t"
+    fea_str=fea_str.rstrip("\t")
+    fea_id_list=[]
+    fea_id_str=""
+    list_temp=fea_str.split("\t")
+    for fea_name in list_temp:
+        fea_id=g_id_obj.get_id(fea_name)
+        fea_id_list.append(fea_id)
+    fea_id_list.sort()
+    for fea_id in fea_id_list:
+        fea_id_str+=str(fea_id)+":1"+" "
+    fea_id_str=fea_id_str.rstrip(" ")
+    return (fea_str,fea_id_str)
 
 def process(input_file,fea_output_file,ml_file,type):
     input_fp=open(input_file,"r")    

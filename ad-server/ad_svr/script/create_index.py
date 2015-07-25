@@ -44,6 +44,7 @@ def create_valid_idea():
     fp=open(consumption_file,"r")
     file_obj=file_process_t()   
     line_cnt=0
+    idea_smooth_dict={}
     for ori_line in fp:
         data_list=ori_line.rstrip("\r\n").split("\t")
         line_cnt+=1
@@ -53,6 +54,8 @@ def create_valid_idea():
         plan_id=file_obj.get_value("plan_id",data_list)
         idea_id=file_obj.get_value("idea_id",data_list)
         consume=float(file_obj.get_value("price",data_list))
+        smooth=float(file_obj.get_value("smooth",data_list))
+        idea_smooth_dict[idea_id]=smooth
         if plan_id in plan_consume_dict:
             plan_consume_dict[plan_id]+=consume
         else:
@@ -109,6 +112,9 @@ def create_valid_idea():
         idea_id=file_obj.get_value("id",data_list)
         plan_id=file_obj.get_value("plan_id",data_list)
         budget=float(file_obj.get_value("budget",data_list))
+        status=file_obj.get_value("status",data_list)
+        if status!="3":
+            continue
         time_range_list=file_obj.get_value("timerange",data_list)
         if time_range_list!=None and time_range_list!="NULL" and len(time_range_list)>0:
             time_range_list=time_range_list.split(",")
@@ -121,12 +127,18 @@ def create_valid_idea():
         if not(plan_id in valid_plan_dict):
             logging.debug("plan id[%s] no budget" %(plan_id))
             continue
+
         if idea_id in idea_consume_dict:
-            idea_consume=idea_consume_dict[plan_id]
+            idea_consume=idea_consume_dict[idea_id]
         else:
             idea_consume=0
+        if idea_id in idea_smooth_dict:
+            smooth=idea_smooth_dict[idea_id]
+            if idea_consume>smooth:
+                logging.debug("idea id[%s] no smooth budget[%f] idea consume[%f]" %(idea_id,smooth,idea_consume))
+                continue
         if budget-idea_consume<=0:
-            logging.debug("idea id[%s] no budget" %(idea_id))
+            logging.debug("idea id[%s] no budget idea consume[%f]" %(idea_id,idea_consume))
             continue
         g_valid_idea_dict[idea_id]=1
     fp.close()

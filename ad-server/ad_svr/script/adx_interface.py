@@ -108,8 +108,9 @@ class mongo_v1_3_1:
         device_dict=get_value(adx_data_dict,"device")
         ip=get_value(device_dict,"ip")
         manufactory=get_value(device_dict,"make")
-        mongo_device_id=get_value(device_dict,"devicetype")
-        device_id=get_value(self.adx_id_map.adx_id_dict["device"],str(mongo_device_id))
+        mongo_device_type=get_value(device_dict,"devicetype")
+        device_type=get_value(self.adx_id_map.adx_id_dict["device"],str(mongo_device_type))
+        dpid=get_value(device_dict,"dpid")
         density=get_value(device_dict,"density")
         mongo_network=get_value(device_dict,"connectiontype")
         network=get_value(self.adx_id_map.adx_id_dict["network"],str(mongo_network))
@@ -118,9 +119,11 @@ class mongo_v1_3_1:
         operator=get_value(self.adx_id_map.adx_id_dict["operator"],mongo_operator)
         parse_req_dict["ip"]=ip
         parse_req_dict["manufactory"]=manufactory
-        parse_req_dict["device"]=device_id
+        parse_req_dict["device_type"]=device_type
         parse_req_dict["network"]=network
         parse_req_dict["operator"]=operator
+        parse_req_dict["dpid"]=dpid
+        
         #process app info
         app_dict=get_value(adx_data_dict,"app")
         app_name=get_value(app_dict,"name")
@@ -149,7 +152,7 @@ class mongo_v1_3_1:
             ad_type="unknown"
         parse_req_dict["impid"]=imp_dict["impid"]
         parse_req_dict["type"]=[]
-        combine_key=ad_type+"_"+device_id
+        combine_key=ad_type+"_"+device_type
         type=get_value(self.adx_id_map.search_type_dict,combine_key)
         parse_req_dict["type"].append(type)
         if ad_type=="banner":
@@ -183,6 +186,7 @@ class mongo_v1_3_1:
             adx_response_dict["nbr"]=0
             adx_response_dict["seatbid"]=[]
             return adx_response_dict
+        logging.debug("laji")
         seat_obj_list=[]
         seat_obj={}
         bid_obj_list=[]
@@ -194,10 +198,12 @@ class mongo_v1_3_1:
         bid_obj["price"]=bid
         bid_obj["adid"]=idea_id
         dsp_info_dict={}
-        dsp_info_dict["device"]=parse_req_dict["device"]
+        dsp_info_dict["device_type"]=parse_req_dict["device_type"]
         dsp_info_dict["network"]=parse_req_dict["network"]
         dsp_info_dict["operator"]=parse_req_dict["operator"]
         dsp_info_dict["classification"]=",".join(parse_req_dict["class_list"])
+        dsp_info_dict["dpid"]=parse_req_dict["dpid"]
+    
         dsp_info_dict["region"]=str(parse_req_dict["region"][2])+","+str(parse_req_dict["region"][3])
         dsp_url=""
         for key,value in dsp_info_dict.items():
@@ -247,6 +253,8 @@ class mongo_v1_3_1:
             bid_obj["cbundle"]=idea_json["link_text"]
         elif click_action_id=='5':
             bid_obj["curl"]="tel://"+idea_json["link"]           
+        parse_req_dict["src"]=idea_json["src"]
+        parse_req_dict["alt"]=idea_json["alt"]
         bid_obj["ext"]=ext_obj
         bid_obj_list.append(bid_obj)   
         seat_obj["bid"]=bid_obj_list
