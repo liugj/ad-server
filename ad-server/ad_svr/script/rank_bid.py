@@ -27,7 +27,9 @@ class rank_bid_t:
                 logging.debug("thr:%f %f" %(prob,operator_dict["thr"]))
                 if prob<operator_dict["thr"]:
                     continue
-                bid=int(operator_dict["basic_bid"]*10000)
+                ratio=prob/operator_dict["thr"]
+                bid=int(operator_dict["basic_bid"]*10000*ratio)
+                logging.debug("bid:%d ratio:%f" %(bid,ratio))
                 result_list.append([idea_id,bid])
         logging.debug("selected ad:%s" %(result_list))
         result_list.sort(lambda x,y:cmp(x[1],y[1]),reverse=True)

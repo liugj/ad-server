@@ -17,6 +17,9 @@ class adx_id_map:
 
         self.adx_id_dict["classification"]={}
         self.adx_id_file_dict["classification"]=conf.get("file","classification")
+        self.adx_id_dict["app"]={}
+        self.adx_id_file_dict["app"]=conf.get("file","app")
+
         self.search_type_dict={}
         self.type_size_dict={}
         self.size_dict={}

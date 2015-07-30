@@ -117,9 +117,9 @@ def process_log(last_time_str,now_time_str,sql_file):
     #file_prefix_list.append(file_prefix)
     minute=last_time.strftime("%M")
     file_list=[]
-    if int(minute)<5:
+    if int(minute)<100:
         last_hour=int(last_time.strftime("%H"))-1
-        file_prefix=last_time.strftime("%Y%m%d*")+str(last_hour)
+        file_prefix=last_time.strftime("%Y%m%d*")#+str(last_hour)
         #file_list=glob.glob(g_conf.get("log","nginx_log")+"/"+file_prefix+"*") 
         file_prefix_list.append(file_prefix)
     idea_charge_dict={}

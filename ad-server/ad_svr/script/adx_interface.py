@@ -128,6 +128,11 @@ class mongo_v1_3_1:
         app_dict=get_value(adx_data_dict,"app")
         app_name=get_value(app_dict,"name")
         app_id=get_value(app_dict,"aid")
+        transform_app_id=get_value(self.adx_id_map.adx_id_dict["app"],app_id)
+        if transform_app_id==None:
+            transform_app_id="0"
+        logging.debug("app id:%s %s" %(app_id,transform_app_id))
+        parse_req_dict["app_id"]=transform_app_id
         mongo_class_list=get_value(app_dict,"cat")
         class_list=[]
         for mongo_class_id in mongo_class_list:
@@ -253,8 +258,11 @@ class mongo_v1_3_1:
             bid_obj["cbundle"]=idea_json["link_text"]
         elif click_action_id=='5':
             bid_obj["curl"]="tel://"+idea_json["link"]           
+        elif click_action_id=="3":
+            bid_obj["curl"]=idea_json["link"]+"?shoozen_com="+imp_id         
         parse_req_dict["src"]=idea_json["src"]
         parse_req_dict["alt"]=idea_json["alt"]
+        parse_req_dict["ad_type"]=idea_json["type"]
         bid_obj["ext"]=ext_obj
         bid_obj_list.append(bid_obj)   
         seat_obj["bid"]=bid_obj_list

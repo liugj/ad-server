@@ -79,6 +79,11 @@ class filter_t:
         result_id_list=self.get_overlap(result_id_list,ret_list)
         logging.debug("filtered:%s" %(result_id_list))
 
+        #meida
+        ret_list=self.search_ridx(parse_req_dict,"app_id","idea_app")
+        result_id_list=self.get_overlap(result_id_list,ret_list)
+        logging.debug("filtered:%s" %(result_id_list))
+
         #ban
         ret_list=self.search_ridx(parse_req_dict,"class_list","ban_idea")
         dict_temp={}

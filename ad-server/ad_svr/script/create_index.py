@@ -92,6 +92,7 @@ def create_valid_idea():
             plan_consume=plan_consume_dict[plan_id]
         else:
             plan_consume=0
+        #print budget,plan_consume,plan_id
         if budget-plan_consume<=0:
             logging.debug("plan[%s] no budget" %(plan_id))
             continue
